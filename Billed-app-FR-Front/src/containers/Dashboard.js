@@ -121,6 +121,7 @@ export default class {
   }
 
   handleRefuseSubmit = (e, bill) => {
+
     const newBill = {
       ...bill,
       status: 'refused',
