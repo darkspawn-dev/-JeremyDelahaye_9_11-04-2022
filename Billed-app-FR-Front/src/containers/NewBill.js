@@ -24,14 +24,9 @@ export default class NewBill {
     const email = JSON.parse(localStorage.getItem("user")).email
     formData.append('file', file)
     formData.append('email', email)
-    // if (file.type ==='image/jpeg' || file.type ==='image.jpg' || file.type ==='image/png') {
-    //   document.getElementById("btn-send-bill").disabled = false;
-
-    // } else {
-    //   document.getElementById("btn-send-bill").disabled = true;
-    // }
-
-    this.store
+    if (file.type ==='image/jpeg' || file.type ==='image/jpg' || file.type ==='image/png') {
+      document.getElementById("btn-send-bill").disabled = false;
+      this.store
       .bills()
       .create({
         data: formData,
@@ -45,6 +40,11 @@ export default class NewBill {
         this.fileUrl = fileUrl
         this.fileName = fileName
       }).catch(error => console.error(error))
+    } else {
+      document.getElementById("btn-send-bill").disabled = true;
+    }
+
+
   }
   handleSubmit = e => {
     e.preventDefault()
