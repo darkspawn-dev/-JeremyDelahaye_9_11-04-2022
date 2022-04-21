@@ -42,6 +42,7 @@ export default class NewBill {
       }).catch(error => console.error(error))
     } else {
       document.getElementById("btn-send-bill").disabled = true;
+      alert('Veuillez choisir un fichier avec l\'extension .jpg, .jpeg ou png')
     }
 
 
